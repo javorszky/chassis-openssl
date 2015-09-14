@@ -3,7 +3,7 @@ openSSL module as extension for chassis.io. See https://github.com/Chassis/Chass
 
 ## Usage
 
-1. Clone this into the `extensions` folder of your Chassis installation.
+1. Clone this into the `extensions` folder of your Chassis installation. Use recursive: `git clone --recursive <giturl>` to get the submodule pulled in as well.
 1. Run `vagrant reload --provision` or just `vagrant up`
 1. Profit.
 
