@@ -1,28 +1,4 @@
-server {
-	listen 443 ssl;
-	server_name <%= @fqdn %>;
-	root /vagrant;
-	client_max_body_size 50M;
+listen 443 ssl;
 
-	ssl_certificate    /etc/ssl/certs/<%= @fqdn %>.crt;
-	ssl_certificate_key    /etc/ssl/certs/<%= @fqdn %>.key;
-
-	location / {
-		index index.php index.html index.htm;
-		try_files $uri $uri/ /index.php$is_args$args;
-	}
-
-	location ~ \.php {
-		try_files $uri =404;
-		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-		fastcgi_pass unix:/var/run/php5-fpm.sock;
-		fastcgi_index index.php;
-		fastcgi_read_timeout 900;
-		include /etc/nginx/fastcgi_params;
-	}
-
-	location ~* \.(js|css|png|jpe?g|gif|ico)$ {
-		log_not_found off;
-	}
-}
+ssl_certificate     /etc/ssl/certs/<%= @fqdn %>.crt;
+ssl_certificate_key /etc/ssl/certs/<%= @fqdn %>.key;
