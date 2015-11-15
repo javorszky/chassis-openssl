@@ -1,6 +1,7 @@
 class openssl-nginx {
 	file { "/etc/nginx/sites-available/$fqdn.d":
 		ensure => directory,
+		require => Package['nginx']
 	}
 
 	file { "/etc/nginx/sites-available/$fqdn.d/ssl":
