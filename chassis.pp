@@ -1,13 +1,11 @@
-openssl::certificate::x509 { 'vagrant.local':
+openssl::certificate::x509 { $fqdn:
   country      => 'CH',
   organization => 'Example.com',
   commonname   => $fqdn,
-}
-
-
-file { '/vagrant/vagrant.local.cert':
+} ->
+file { "/vagrant/${fqdn}.cert":
 	ensure => present,
-	source => '/etc/ssl/certs/vagrant.local.crt',
+	source => "/etc/ssl/certs/${fqdn}.crt",
 	mode => '0644',
 }
 
