@@ -2,6 +2,7 @@ openssl::certificate::x509 { $fqdn:
   country      => 'CH',
   organization => 'Example.com',
   commonname   => $fqdn,
+  altnames     => [ $fqdn ],
 } ->
 file { "/vagrant/${fqdn}.cert":
 	ensure => present,
