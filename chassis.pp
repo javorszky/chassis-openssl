@@ -1,8 +1,10 @@
+$openssl_config = sz_load_config()
+
 openssl::certificate::x509 { $fqdn:
   country      => 'CH',
   organization => 'Example.com',
   commonname   => $fqdn,
-  altnames     => [ $fqdn ],
+  altnames     => $openssl_config[hosts],
 } ->
 file { "/vagrant/${fqdn}.cert":
 	ensure => present,
