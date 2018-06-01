@@ -7,10 +7,8 @@ openSSL module as extension for chassis.io. See https://github.com/Chassis/Chass
 1. Run `vagrant reload --provision` or just `vagrant up`
 1. Create or edit `local-config.php` in Chassis root and add/edit the following: (see also: https://github.com/Chassis/Chassis/blob/master/docs/config.rst)
 
-        ```
         define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST'] . '/wp');
         define('WP_HOME', 'https://' . $_SERVER['HTTP_HOST']);
-        ```
 
 1. Profit.
 
